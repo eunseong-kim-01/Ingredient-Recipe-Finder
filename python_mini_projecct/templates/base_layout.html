@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block page_title %}음식 추천{% endblock %}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+
+    body {
+      font-family: 'Inter', 'Arial', sans-serif; 
+      background-color: #fffaf0; 
+      margin: 0;
+      padding: 20px; 
+      text-align: center; 
+      line-height: 1.6; 
+      color: #333;
+    }
+
+    h1, h2, h3, h4 {
+      color: #ff6f61;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: calc(100% - 30px); 
+      max-width: 400px; 
+      padding: 12px 15px;
+      font-size: 1.05rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      background-color: #fffaf5; 
+      margin: 10px 0; 
+      box-sizing: border-box;
+    }
+
+    
+    button,
+    input[type="submit"] {
+      background-color: #ffe0e0;
+      padding: 12px 30px;
+      border: none; 
+      border-radius: 10px; 
+      font-size: 1.05rem;
+      cursor: pointer; 
+      transition: all 0.3s ease; 
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1); 
+      margin: 5px; 
+    }
+
+    
+    button:hover,
+    input[type="submit"]:hover {
+      background-color: #ffbdbd; 
+      transform: translateY(-2px); 
+      box-shadow: 4px 4px 12px rgba(0,0,0,0.15); 
+    }
+
+
+    a {
+      text-decoration: none; 
+      color: #555; 
+      font-weight: bold; 
+      transition: color 0.3s ease; 
+    }
+
+    a:hover {
+      color: #ff6f61;
+    }
+
+    .error_message {
+      color: #d33; 
+      margin: 15px 0; 
+      font-weight: bold; 
+      background-color: #ffebeb; 
+      padding: 10px;
+      border-radius: 8px; 
+      border: 1px solid #d33; 
+    }
+
+
+    .page_footer {
+      margin-top: 40px; 
+      padding-top: 20px; 
+      border-top: 1px solid #eee; 
+      color: #777; 
+    }
+
+    .footer_home_link {
+        font-size: 0.9em; 
+        padding: 8px 15px; 
+        border-radius: 8px; 
+        background-color: #f0f0f0; 
+        color: #555; 
+        display: inline-block; 
+        box-shadow: 1px 1px 5px rgba(0,0,0,0.05); /
+    }
+
+    .footer_home_link:hover {
+        background-color: #e0e0e0; 
+        color: #ff6f61; 
+        transform: translateY(-1px); 
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .card_element {
+      background-color: #fff; 
+      padding: 20px; 
+      border-radius: 15px; 
+      margin: 15px; 
+      display: inline-block; 
+      width: calc(33% - 30px); 
+      max-width: 300px; 
+      vertical-align: top; 
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1); 
+      text-align: center;
+      transition: transform 0.2s ease; 
+    }
+
+ 
+    .card_element:hover {
+        transform: translateY(-5px);
+    }
+
+    .card_element img {
+      width: 100%; 
+      height: 150px; 
+      object-fit: cover; 
+      border-radius: 10px; 
+      margin-bottom: 15px; 
+    }
+
+    .card_element h4 {
+      margin-top: 0; 
+      font-size: 1.2em;
+      color: #333;
+    }
+
+
+    .card_element p {
+      font-size: 0.95em;
+      color: #666;
+    }
+
+    .main_container {
+      max-width: 960px; 
+      margin: 0 auto; 
+      padding: 20px; 
+      background-color: #ffffff; 
+      border-radius: 20px; 
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05); 
+    }
+
+    .info_message {
+        margin-top: 20px;
+        font-size: 1.1em;
+        color: #666;
+        background-color: #f0f8ff;
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #cceeff;
+    }
+
+    .sr_only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        border: 0;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="main_container">
+    {% block content %}
+    
+    
+    {% endblock %} 
+
+    {% block footer_section %}
+    <div class="page_footer">
+      <a href="{{ url_for('main_page') }}" class="footer_home_link">🏠 첫 페이지로 돌아가기</a>
+    </div>
+    {% endblock %}
+  </div>
+</body>
+</html>

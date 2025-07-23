@@ -1,0 +1,166 @@
+{% extends 'base_layout.html' %} 
+{% block page_title %}요리 선택{% endblock %} 
+{% block content %} 
+
+<div class="content_section">
+    <h2>내가 입력한 재료:</h2>
+    <p class="input_ingredients_display">{{ input_ingredients_list | join(', ') }}</p>
+
+    <h2>이 재료로 만들 수 있는 요리:</h2>
+
+    {% if recommended_dish_list %} 
+        <form method="POST" action="{{ url_for('view_recipe') }}"> 
+            {# 사용자 입력 재료를 hidden input으로 전달하여 다음 페이지에서 활용 #}
+            <input type="hidden" name="user_ingredients_str" value="{{ input_ingredients_list | join(',') }}">
+            
+            <div class="dish_selection_grid">
+                {% for dish in recommended_dish_list %} 
+                    <label class="dish_card_label">
+                        <input type="radio" name="selected_dish_number" value="{{ dish.food_number }}" required class="dish_radio_button">
+                        <div class="card_element dish_card"> {# base_layout.html의 카드 스타일 상속 #}
+                            <img src="{{ dish.image_url }}" alt="{{ dish.food_name }} 요리 이미지" onerror="this.onerror=null;this.src='https://placehold.co/250x150/cccccc/333333?text=이미지+없음';">
+                            <h4>{{ dish.food_name }}</h4>
+                            <p class="dish_type_kcal">{{ dish.types_cooking }} | {{ dish.kcal }} kcal</p> 
+                            <p class="dish_description">{{ dish.description }}</p>
+                        </div>
+                    </label>
+                {% endfor %}
+            </div>
+            <input type="submit" value="이 요리 선택하기" class="dish_select_button">
+        </form>
+    {% else %} 
+        <p class="info_message">죄송합니다. 입력하신 재료로는 추천할 만한 요리가 없습니다. 다른 재료를 시도해보세요!</p>
+    {% endif %}
+</div>
+
+<style>
+    .input_ingredients_display {
+        font-size: 1.1em;
+        font-weight: bold;
+        color: #555;
+        margin-bottom: 30px;
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #eee;
+    }
+
+
+    .dish_selection_grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px; 
+        justify-items: center; 
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+
+    
+    .dish_card_label {
+        display: block; 
+        cursor: pointer; 
+        position: relative; 
+        border-radius: 15px;
+        transition: all 0.2s ease;
+        overflow: hidden; 
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .dish_card_label:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
+    }
+
+    
+    .dish_radio_button {
+        position: absolute;
+        opacity: 0; 
+        width: 0;
+        height: 0;
+    }
+
+    
+    .dish_radio_button:checked + .dish_card {
+        border: 3px solid #ff6f61; 
+        box-shadow: 0 0 0 5px rgba(255, 111, 97, 0.3); 
+        background-color: #fff5f5; 
+    }
+
+  
+    .dish_card {
+        padding: 15px;
+        margin: 0; 
+        min-height: 320px; 
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column; 
+        justify-content: space-between; 
+        text-align: center;
+    }
+
+    .dish_card img {
+        width: 100%;
+        height: 150px; 
+        object-fit: cover; 
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+
+    .dish_card h4 {
+        font-size: 1.2em;
+        margin-bottom: 8px;
+        color: #333;
+        white-space: normal;
+        word-break: keep-all;
+        overflow: visible;
+        text-overflow: clip;
+        display: block;
+    }
+
+   
+    .dish_type_kcal {
+        font-size: 0.9em;
+        color: #888;
+        margin-bottom: 8px;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+    }
+
+    .dish_description {
+        font-size: 0.9em;
+        color: #666;
+        flex-grow: 1; 
+        margin-bottom: 10px;
+        white-space: normal;
+        word-break: keep-all;
+        overflow: visible;
+        text-overflow: clip;
+        display: block;
+    }
+
+
+    .dish_select_button {
+        background-color: #ff6f61; 
+        color: white; 
+        padding: 15px 40px;
+        font-size: 1.2em;
+        border-radius: 12px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(255, 111, 97, 0.3);
+        margin-top: 20px;
+    }
+
+    .dish_select_button:hover {
+        background-color: #ff4d4d; 
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(255, 111, 97, 0.4);
+    }
+
+
+</style>
+{% endblock %}

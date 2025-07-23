@@ -1,0 +1,34 @@
+{% extends 'base_layout.html' %}
+{% block page_title %}재료 개수 입력{% endblock %}
+{% block content %} 
+
+<div class="content_section">
+    <h2>🛒 사용할 재료 개수는?</h2>
+    <p class="guide_text">집에 있는 재료가 몇 가지인지 숫자로 입력해주세요. (2개에서 10개 사이)</p>
+    <form method="POST" action="{{ url_for('home_dish_ingredient_count_input') }}"> 
+        <label for="ingredient_count_input" class="sr_only">재료 개수:</label> 
+        <input
+            type="number"
+            id="ingredient_count_input"
+            name="ingredient_count"
+            min="2"
+            max="10"
+            placeholder="예: 3"
+            required
+            aria-label="재료 개수 입력" 
+        >
+        <input type="submit" value="다음 단계로">
+    </form>
+    {% if error_message %} 
+        <p class="error_message">{{ error_message }}</p>
+    {% endif %}
+</div>
+
+<style>
+    .guide_text {
+        font-size: 1.1em;
+        color: #666;
+        margin-bottom: 25px;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends 'base_layout.html' %} 
+{% block page_title %}오늘 뭐 먹지?{% endblock %}
+{% block content %}
+
+<div class="content_section main_choice_section">
+    <h1>오늘 뭐 먹지? 🍽️</h1>
+    <p class="intro_text">집에서 직접 요리할까요, 아니면 밖에서 맛있는 음식을 사 먹을까요?</p>
+
+    <form action="{{ url_for('handle_food_choice') }}" method="post"> 
+        <div class="button_container" style="display:flex; justify-content:center; gap:30px;">
+            {# '집에서 먹을래' 버튼 #}
+            <button class="option_button" type="submit" name="where" value="home">
+                <span class="emoji">🏠</span>
+                집에서 먹을래
+            </button>
+            {# '밖에서 먹을래' 버튼 #}
+            <button class="option_button" type="submit" name="where" value="out">
+                <span class="emoji">🍜</span>
+                밖에서 먹을래
+            </button>
+        </div>
+    </form>
+</div>
+
+<style>
+    .main_choice_section {
+        padding: 40px 20px;
+    }
+
+    .main_choice_section h1 {
+        font-size: 2.8em;
+        margin-bottom: 25px;
+        color: #ff6f61;
+    }
+
+    .intro_text {
+        font-size: 1.3em;
+        color: #666;
+        margin-bottom: 40px;
+    }
+
+    .button_container {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 30px; 
+        margin-top: 30px;
+    }
+
+    .option_button {
+        background: #ffe0e0; 
+        border: none;
+        border-radius: 20px; 
+        padding: 35px 55px;
+        font-size: 1.6em;
+        font-weight: 600; 
+        cursor: pointer;
+        box-shadow: 4px 4px 15px rgba(0,0,0,0.15); 
+        transition: all 0.3s ease; 
+        color: #333; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        min-width: 250px; 
+    }
+
+    .option_button:hover {
+        background-color: #ffbdbd; 
+        transform: translateY(-5px); 
+        box-shadow: 6px 6px 20px rgba(0,0,0,0.2); 
+    }
+
+    .option_button .emoji {
+        font-size: 3em; 
+        display: block; 
+        margin-bottom: 15px;
+        transition: transform 0.3s ease; 
+    }
+
+    .option_button:hover .emoji {
+        transform: scale(1.1); 
+    }
+
+
+</style>
+{% endblock %}
+
+{# "첫 페이지로 돌아가기" 버튼을 표시하지 않기 #}
+{% block footer_section %}
+
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base_layout.html' %} 
+{% block page_title %}재료 입력 및 요리 선택{% endblock %} 
+{% block content %} 
+
+<div class="content_section">
+    <h2>🍚 재료를 입력해주세요</h2>
+    <p class="guide_text">집에 있는 재료들을 하나씩 입력해주세요. 입력하신 재료를 바탕으로 요리를 추천해 드립니다.</p>
+    <form method="POST" action="{{ url_for('dish_selection_page') }}"> 
+        {% for i in range(1, ingredient_count + 1) %} 
+            <div class="ingredient_input_group">
+                <label for="ingredient_input_{{ i }}" class="sr_only">재료 {{ i }}:</label> 
+                <input
+                    type="text"
+                    id="ingredient_input_{{ i }}"
+                    name="ingredient_{{ i }}" 
+                    placeholder="재료 {{ i }} 입력"
+                    required
+                    aria-label="재료 {{ i }} 입력"
+                >
+            </div>
+        {% endfor %}
+        <input type="submit" value="요리 찾기">
+    </form>
+</div>
+
+<style>
+    .ingredient_input_group {
+        margin-bottom: 15px;
+    }
+    .ingredient_input_group input[type="text"] {
+        width: calc(100% - 30px); 
+        max-width: 400px;
+    }
+</style>
+{% endblock %}
