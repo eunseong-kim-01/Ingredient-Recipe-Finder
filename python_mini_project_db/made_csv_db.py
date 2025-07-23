@@ -82,7 +82,6 @@ try:
                             food_recipe = '\n'.join(recipe_text) # list형식을 \n구문으로 한 요소로 합치기
 
                             try:
-                                # 사이트 구조에 맞는 셀렉터로 메인 이미지를 찾아주세요.
                                 img_elem = driver.find_element(By.CSS_SELECTOR, "div.areaThumbnail dt img.img")
                                 img_url = img_elem.get_attribute("src")
                             except NoSuchElementException:
@@ -151,9 +150,7 @@ with open("./cook_ingredient.csv", 'w', newline='', encoding="utf-8-sig") as f:
 # 레시피 (음식이름,레시피,인분,난이도,요리종류)
 with open("./cook_recipe.csv", 'w', newline='', encoding="utf-8-sig") as f:
     wtr = csv.writer(f)
-    # 1) header (컬럼명) 쓰기
     wtr.writerow(["food_number", "food_name", "recipe", "serving_number" , "level"])
-    # 2) for문을 이용한 여러 행 쓰기
     food_number_list  = food_number_list
     food_name_list = food_name_list
     recipe_list = food_recipe_list
