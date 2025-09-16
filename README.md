@@ -5,7 +5,7 @@
 <br>
 
 ### **데모 (Demo)**
-![프로젝트 데모 GIF](URL)
+![프로젝트 데모 GIF]([URL](https://github.com/user-attachments/assets/89b55170-621a-4ffa-bfc5-85cda4a4ab53))
 
 <br>
 
