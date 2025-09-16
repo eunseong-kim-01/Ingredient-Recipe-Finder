@@ -25,7 +25,7 @@
 ## **🚀 프로젝트 발표 자료 (Presentation)**
 > 전체 발표 내용은 아래 링크에서 PDF 파일로 확인하실 수 있습니다.
 
-**[📄 발표자료 PDF 보기](.docs/python_mini_project_ppt_pdf.pdf)**
+**[📄 발표자료 PDF 보기](./docs/python_mini_project_ppt_pdf.pdf)**
 
 <br>
 
