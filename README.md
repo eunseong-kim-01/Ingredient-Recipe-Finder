@@ -4,6 +4,11 @@
 
 <br>
 
+### **🎥 데모 영상 (Demo)**
+![프로젝트 데모 GIF](https://github.com/user-attachments/assets/89b55170-621a-4ffa-bfc5-85cda4a4ab53)
+
+<br>
+
 ## **🎯 프로젝트 목표 및 목적 (Goal)**
 
 일상에서 누구나 겪는 식사 메뉴 선택의 어려움을 해결하고자 했습니다. 냉장고에 있는 재료를 효율적으로 사용하게 하여 식비 절약에 도움을 주고, 때로는 새로운 맛집을 추천하여 즐거운 식사 경험을 제공하는 것을 목표로 합니다.
@@ -18,15 +23,10 @@
 
 <br>
 
-### **🎥 데모 영상 (Demo)**
-![프로젝트 데모 GIF](https://github.com/user-attachments/assets/89b55170-621a-4ffa-bfc5-85cda4a4ab53)
-
-<br>
-
 ### **🏗️ 아키텍처 및 플로우차트 (Architecture & Flow Chart)**
 | System Architecture | Flow Chart |
 | :---: | :---: |
-| <img src="./docs/python_mini_project_system_architecture.png" width="400px"> | <img src="./docs/flow_chart.png" width="400px"> |
+| <img src="./docs/python_mini_project_system_architecture.png" width="400px"> | <img src="./docs/python_mini_project_flow_chart.png" width="400px"> |
 
 <br>
 
