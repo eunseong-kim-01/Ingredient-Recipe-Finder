@@ -32,7 +32,7 @@
 ## **⚙️ 아키텍처 및 사용 기술 (Architecture & Tech Stack)**
 
 #### **시스템 구조**
-![시스템 구조도](./docs/python_mini_project_system_architecture.png)
+<img src="./docs/python_mini_project_system_architecture.png" width="50%">
 
 
 
